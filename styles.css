@@ -303,4 +303,186 @@ p {
   margin: 3rem 0;
 }
 
-.fe
+.features li {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px dashed #eee;
+  display: flex;
+  align-items: flex-start;
+}
+
+.features li:last-child {
+  border-bottom: none;
+}
+
+.features li i {
+  color: var(--urgency-red);
+  margin-right: 15px;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.price-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.old-price {
+  font-size: 1.5rem;
+  color: #95a5a6;
+  text-decoration: line-through;
+  margin-right: 1rem;
+}
+
+.new-price {
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--urgency-red);
+}
+
+.timer {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  background: var(--dark-contrast);
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  display: inline-block;
+  margin: 1rem 0;
+  letter-spacing: 3px;
+}
+
+.buy-button {
+  background: var(--money-green);
+  color: white;
+  border: none;
+  padding: 1.2rem 3rem;
+  font-size: 1.2rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  box-shadow: 0 5px 15px rgba(46, 204, 113, 0.4);
+}
+
+.buy-button i {
+  margin-right: 10px;
+}
+
+.buy-button:hover {
+  background: #27ad5f;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(46, 204, 113, 0.6);
+}
+
+.guarantee {
+  margin-top: 2rem;
+  color: #95a5a6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.guarantee i {
+  margin-right: 10px;
+  color: var(--trust-blue);
+}
+
+/* ===== FAQ SECTION ===== */
+.faq {
+  padding: 5rem 0;
+  background: white;
+  text-align: center;
+}
+
+.faq h2 {
+  color: var(--dark-contrast);
+  margin-bottom: 3rem;
+}
+
+.faq-item {
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  text-align: left;
+  background: var(--light-bg);
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.faq-item h3 {
+  display: flex;
+  align-items: center;
+  color: var(--dark-contrast);
+}
+
+.faq-item h3 i {
+  margin-right: 15px;
+  color: var(--trust-blue);
+}
+
+/* ===== FINAL CTA ===== */
+.final-cta {
+  padding: 5rem 0;
+  background: linear-gradient(135deg, var(--urgency-red) 0%, #c0392b 100%);
+  color: white;
+  text-align: center;
+}
+
+.final-cta h2 {
+  margin-bottom: 1rem;
+}
+
+.final-cta p {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+}
+
+.buy-button.big {
+  padding: 1.5rem 4rem;
+  font-size: 1.5rem;
+  background: white;
+  color: var(--urgency-red);
+}
+
+.buy-button.big:hover {
+  background: #f8f9fa;
+}
+
+.small-text {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-top: 2rem;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.7rem; }
+  
+  .hero {
+    padding: 3rem 0;
+  }
+  
+  .testimonial blockquote {
+    font-size: 1.2rem;
+    padding: 0 1rem;
+  }
+  
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .price-box {
+    flex-direction: column;
+  }
+  
+  .old-price {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+}
