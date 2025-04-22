@@ -1,25 +1,28 @@
 /* ===== MODERN DESIGN SYSTEM ===== */
 :root {
-  /* Light Mode */
-  --light-bg: #f8fafc;
-  --light-text: #1e293b;
+  /* Vibrant Color Scheme */
+  --light-bg: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+  --light-text: #1f2937;
   --light-card: #ffffff;
-  --light-border: #e2e8f0;
-  --light-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --light-border: #d1d5db;
+  --light-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 
   /* Dark Mode */
-  --dark-bg: #0f172a;
-  --dark-text: #f1f5f9;
+  --dark-bg: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+  --dark-text: #f3f4f6;
   --dark-card: #1e293b;
-  --dark-border: #334155;
-  --dark-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  --dark-border: #4b5563;
+  --dark-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 
-  /* Brand Colors */
-  --primary: #ef4444;
-  --primary-dark: #dc2626;
+  /* Brand Colors - More Vibrant */
+  --primary: #4f46e5;
+  --primary-dark: #4338ca;
   --accent: #f59e0b;
   --highlight: #10b981;
   --danger: #ef4444;
+  --electric-blue: #3b82f6;
+  --violet: #8b5cf6;
+  --pink: #ec4899;
 
   /* Typography */
   --font-heading: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -97,14 +100,20 @@ h1, h2, h3, h4 {
 h1 {
   font-size: calc(var(--text-base) * var(--text-scale) * 2.5);
   letter-spacing: -0.05em;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--pink) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 h2 {
   font-size: calc(var(--text-base) * var(--text-scale) * 2);
+  color: var(--primary-dark);
 }
 
 h3 {
   font-size: calc(var(--text-base) * var(--text-scale) * 1.5);
+  color: var(--violet);
 }
 
 p, li {
@@ -143,8 +152,8 @@ p, li {
 
 /* ===== HERO SECTION ===== */
 .hero {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-  color: pink;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--violet) 100%);
+  color: white;
   padding: 6rem 0 5rem;
   text-align: center;
   position: relative;
@@ -153,7 +162,7 @@ p, li {
 }
 
 [data-theme="dark"] .hero {
-  background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+  background: linear-gradient(135deg, var(--primary-dark) 0%, #6d28d9 100%);
 }
 
 .hero .container {
@@ -166,8 +175,10 @@ p, li {
   opacity: 0.9;
   max-width: 700px;
   margin: 0 auto 2rem;
+  color: rgba(255, 255, 255, 0.9);
 }
 
+/* ===== BLINKING PROOF BUTTON ===== */
 .proof-badge {
   display: inline-flex;
   align-items: center;
@@ -179,10 +190,21 @@ p, li {
   font-weight: 600;
   margin-top: 1.5rem;
   transition: all 0.3s ease;
+  color: white;
+  border: 2px solid white;
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; transform: scale(1.02); }
+  100% { opacity: 1; }
 }
 
 .proof-badge:hover {
   background: rgba(255, 255, 255, 0.25);
+  animation: none;
+  transform: scale(1.05);
 }
 
 /* ===== CARD COMPONENT ===== */
@@ -194,21 +216,22 @@ p, li {
   box-shadow: var(--light-shadow);
   border: 1px solid var(--light-border);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  background: linear-gradient(145deg, #ffffff 0%, #f9fafb 100%);
 }
 
 [data-theme="dark"] .card {
-  background: var(--dark-card);
+  background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
   box-shadow: var(--dark-shadow);
   border-color: var(--dark-border);
 }
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
 [data-theme="dark"] .card:hover {
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
 }
 
 /* ===== BUTTONS ===== */
@@ -227,13 +250,13 @@ p, li {
   border: none;
   cursor: pointer;
   font-size: 1rem;
-  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+  box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
 }
 
 .button:hover {
   background: var(--primary-dark);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+  box-shadow: 0 8px 25px rgba(79, 70, 229, 0.4);
 }
 
 .button i {
@@ -245,6 +268,35 @@ p, li {
   font-size: 1.1rem;
 }
 
+/* ===== BLINKING ADD TO CART BUTTON ===== */
+.add-to-cart {
+  background: linear-gradient(135deg, var(--electric-blue) 0%, var(--violet) 100%);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+  transition: all 0.3s ease;
+  animation: pulse 2s infinite;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); }
+  70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(59, 130, 246, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+}
+
+.add-to-cart:hover {
+  animation: none;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+}
+
 /* ===== PRICE DISPLAY ===== */
 .price-box {
   display: flex;
@@ -252,6 +304,9 @@ p, li {
   justify-content: center;
   gap: 1.5rem;
   margin: 2rem 0;
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+  padding: 1.5rem;
+  border-radius: 16px;
 }
 
 .old-price {
@@ -270,6 +325,7 @@ p, li {
   font-weight: 800;
   color: var(--primary);
   line-height: 1;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .timer {
@@ -282,6 +338,7 @@ p, li {
   border-radius: 8px;
   margin: 1rem 0;
   display: inline-block;
+  border-left: 4px solid var(--danger);
 }
 
 /* ===== TESTIMONIALS ===== */
@@ -290,6 +347,11 @@ p, li {
   font-style: italic;
   position: relative;
   padding: 0 2rem;
+  color: var(--light-text);
+}
+
+[data-theme="dark"] .testimonial blockquote {
+  color: var(--dark-text);
 }
 
 .testimonial blockquote::before,
@@ -348,6 +410,23 @@ p, li {
   margin-top: 0.2rem;
 }
 
+/* ===== COLORFUL ELEMENTS ===== */
+.color-accent {
+  background: linear-gradient(135deg, var(--electric-blue) 0%, var(--violet) 100%);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+.highlight-box {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+  border-left: 4px solid var(--highlight);
+  padding: 1.5rem;
+  border-radius: 0 8px 8px 0;
+  margin: 1.5rem 0;
+}
+
 /* ===== MEDIA QUERIES ===== */
 @media (max-width: 768px) {
   :root {
@@ -383,5 +462,10 @@ p, li {
     height: 2.5rem;
     top: 1rem;
     right: 1rem;
+  }
+  
+  .add-to-cart, .proof-badge {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9rem;
   }
 }
