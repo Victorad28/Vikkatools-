@@ -1,8 +1,75 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lazy eBook Formula - $20K/Month Blueprint</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
-<h1>hello developer</h1>
+  <div class="container">
+    <header>
+      <h1>The Lazy 3-Step Formula That Made Me <span class="highlight">$20,843</span> Last Month</h1>
+      <p class="subtitle">No Experience, No Ads, No BS—Just One eBook.</p>
+    </header>
+
+    <section class="proof-section">
+      <div class="proof-badge">
+        <img src="proof-icon.png" alt="Proof icon" width="30">
+        <span>Proof: See my June PayPal deposit →</span>
+      </div>
+    </section>
+
+    <section class="hook-section">
+      <blockquote>
+        "If you enjoy trading 50 hours a week for $500, close this page now."
+        <cite>(This is for people who'd rather make money while they sleep.)</cite>
+      </blockquote>
+    </section>
+
+    <section class="story-section">
+      <p>I used to think making real money online was a scam—until I accidentally stumbled onto <strong>a loophole in eBook marketing</strong>.</p>
+      <p>No fancy skills. No begging for sales. Just <strong>3 stupidly simple steps</strong> that turned my first eBook into a <strong>$4,217 paycheck in 30 days</strong> (yes, I'll show you the receipts).</p>
+    </section>
+
+    <section class="cta-section">
+      <div class="cta-box">
+        <h2>"This Would Be Stupid at $500. At $5, It's Criminal."</h2>
+        <ul class="features-list">
+          <li>🔥 <strong>The 3-Step "Lazy Author" System</strong> (how I made $20K in 90 days)</li>
+          <li>🔥 <strong>5 Hot Niches</strong> that bank easy sales</li>
+          <li>🔥 <strong>My "Dumb Traffic Trick"</strong> that gets free promotion</li>
+          <li>🔥 <strong>The 1-Hour Website Setup</strong> (steal my template)</li>
+        </ul>
+        <div class="price-timer">
+          <p>48 HOURS TO LOCK IN $5</p>
+          <div class="timer" id="countdown">23:59:59</div>
+        </div>
+        <button class="buy-button">ADD TO CART →</button>
+        <p class="guarantee">60-Day Money Back Guarantee</p>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // Countdown timer
+    function updateTimer() {
+      const now = new Date();
+      const end = new Date();
+      end.setHours(23, 59, 59, 999);
+      
+      const diff = end - now;
+      const hours = Math.floor(diff / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+      
+      document.getElementById('countdown').innerHTML = 
+        `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    }
+    
+    setInterval(updateTimer, 1000);
+    updateTimer();
+  </script>
 </body>
-</html>
+        </html>
