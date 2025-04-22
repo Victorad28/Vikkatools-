@@ -23,6 +23,12 @@
     <i class="fas fa-sun"></i>
   </button>
 
+  <!-- Shopping Cart Display -->
+  <div class="cart-display">
+    <i class="fas fa-shopping-cart"></i>
+    <span class="cart-count">0</span> items - $<span class="cart-total">0.00</span>
+  </div>
+
   <!-- Hero Section -->
   <header class="hero">
     <div class="container">
@@ -96,6 +102,13 @@
         <h2>"This Would Be Stupid at $500. At $5, It's Criminal."</h2>
         <p>I've packed <strong>everything</strong> into <strong>"Write. Launch. Profit."</strong>—the only eBook that <strong>does the heavy lifting for you</strong>:</p>
         
+        <!-- Added Image Gallery -->
+        <div class="image-gallery">
+          <img src="/vikkatools/images/ebook-cover.jpg" alt="Write. Launch. Profit. eBook Cover" class="gallery-image">
+          <img src="/vikkatools/images/sales-dashboard.jpg" alt="Sales Dashboard" class="gallery-image">
+          <img src="/vikkatools/images/niche-examples.jpg" alt="Profitable Niche Examples" class="gallery-image">
+        </div>
+
         <ul class="features">
           <li><i class="fas fa-fire"></i> <strong>The 3-Step "Lazy Author" System</strong> (how I made $20K in 90 days)</li>
           <li><i class="fas fa-fire"></i> <strong>5 Hot Niches</strong> that bank easy sales</li>
@@ -110,8 +123,8 @@
           <div class="timer" id="countdown">23:59:59</div>
         </div>
 
-        <button class="buy-button">
-          <i class="fas fa-shopping-cart"></i> ADD TO CART NOW
+        <button class="add-to-cart" data-product-id="ebook1" data-price="5">
+          <i class="fas fa-cart-plus"></i> ADD TO CART
         </button>
 
         <div class="guarantee">
@@ -145,7 +158,7 @@
     <div class="container">
       <h2>48 Hours to Lock In $5—or Stay Broke</h2>
       <p>This price is a <strong>glitch</strong> (it's going to $47 soon).</p>
-      <button class="buy-button big">
+      <button class="add-to-cart big" data-product-id="ebook1" data-price="5">
         <i class="fas fa-arrow-right"></i> YES! I WANT THE $20K/MONTH BLUEPRINT
       </button>
       <p class="small-text">Or... do nothing, and wake up tomorrow same job, same doubts, same empty wallet.</p>
@@ -154,6 +167,7 @@
 
   <!-- JavaScript (FIXED PATH FOR YOUR NEW REPO NAME) -->
   <script src="/vikkatools/theme.js"></script>
+  <script src="/vikkatools/cart.js"></script>
   <script>
     // Countdown Timer
     function updateTimer() {
