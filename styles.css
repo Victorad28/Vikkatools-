@@ -2,30 +2,24 @@
 :root {
   /* Light Mode */
   --light-bg: #f8fafc;
-  --light-text: #000000; /* Changed to black */
+  --light-text: #1e293b;
   --light-card: #ffffff;
   --light-border: #e2e8f0;
   --light-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 
   /* Dark Mode */
   --dark-bg: #0f172a;
-  --dark-text: #ffffff; /* Changed to white */
+  --dark-text: #f1f5f9;
   --dark-card: #1e293b;
   --dark-border: #334155;
   --dark-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 
   /* Brand Colors */
-  --primary: #1e3a8a;
-  --primary-dark: #4c1d95;
+  --primary: #ef4444;
+  --primary-dark: #dc2626;
   --accent: #f59e0b;
   --highlight: #10b981;
   --danger: #ef4444;
-
-  /* Typography */
-  --font-heading: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-body: 'Inter', system-ui, sans-serif;
-  --text-base: 1rem;
-  --text-scale: 1.25;
 }
 
 /* ===== BASE STYLES ===== */
@@ -41,7 +35,7 @@ html {
 }
 
 body {
-  font-family: var(--font-body);
+  font-family: 'Inter', system-ui, sans-serif;
   line-height: 1.6;
   background: var(--light-bg);
   color: var(--light-text);
@@ -85,9 +79,51 @@ body {
   font-size: 1.2rem;
 }
 
+/* ===== IMAGE STYLES (NEW ADDITION) ===== */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.proof-image {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 12px;
+  border: 3px solid var(--light-border);
+  box-shadow: var(--light-shadow);
+  margin: 1rem auto;
+  display: block;
+}
+
+[data-theme="dark"] .proof-image {
+  border-color: var(--dark-border);
+}
+
+.image-gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.gallery-image {
+  width: 100%;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  box-shadow: var(--light-shadow);
+}
+
+.gallery-image:hover {
+  transform: scale(1.03);
+}
+
+[data-theme="dark"] .gallery-image {
+  box-shadow: var(--dark-shadow);
+}
+
 /* ===== TYPOGRAPHY SYSTEM ===== */
 h1, h2, h3, h4 {
-  font-family: var(--font-heading);
+  font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 1.25rem;
@@ -95,20 +131,20 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-  font-size: calc(var(--text-base) * var(--text-scale) * 2.5);
+  font-size: 2.5rem;
   letter-spacing: -0.05em;
 }
 
 h2 {
-  font-size: calc(var(--text-base) * var(--text-scale) * 2);
+  font-size: 2rem;
 }
 
 h3 {
-  font-size: calc(var(--text-base) * var(--text-scale) * 1.5);
+  font-size: 1.5rem;
 }
 
 p, li {
-  font-size: var(--text-base);
+  font-size: 1rem;
   line-height: 1.7;
   margin-bottom: 1.5rem;
   color: inherit;
@@ -166,9 +202,9 @@ p, li {
   opacity: 0.9;
   max-width: 700px;
   margin: 0 auto 2rem;
+  color: rgba(255, 255, 255, 0.9);
 }
 
-/* ===== BLINKING PROOF BUTTON ===== */
 .proof-badge {
   display: inline-flex;
   align-items: center;
@@ -257,36 +293,6 @@ p, li {
   font-size: 1.1rem;
 }
 
-/* ===== ADD TO CART BUTTON ===== */
-button.add-to-cart {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--highlight);
-  color: white;
-  padding: 1rem 2rem;
-  border-radius: 12px;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
-  font-size: 1rem;
-  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
-  transition: all 0.3s ease;
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5); }
-  70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
-}
-
-button.add-to-cart:hover {
-  animation: none;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
-}
-
 /* ===== PRICE DISPLAY ===== */
 .price-box {
   display: flex;
@@ -324,6 +330,7 @@ button.add-to-cart:hover {
   border-radius: 8px;
   margin: 1rem 0;
   display: inline-block;
+  border-left: 4px solid var(--danger);
 }
 
 /* ===== TESTIMONIALS ===== */
@@ -332,6 +339,11 @@ button.add-to-cart:hover {
   font-style: italic;
   position: relative;
   padding: 0 2rem;
+  color: var(--light-text);
+}
+
+[data-theme="dark"] .testimonial blockquote {
+  color: var(--dark-text);
 }
 
 .testimonial blockquote::before,
@@ -413,6 +425,10 @@ button.add-to-cart:hover {
     flex-direction: column;
     gap: 0.5rem;
   }
+
+  .image-gallery {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 480px) {
@@ -425,10 +441,5 @@ button.add-to-cart:hover {
     height: 2.5rem;
     top: 1rem;
     right: 1rem;
-  }
-  
-  button.add-to-cart {
-    padding: 0.75rem 1.5rem;
-    font-size: 0.9rem;
   }
 }
