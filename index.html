@@ -19,12 +19,67 @@
       display: inline-block;
     }
     .x-emoji {
-      color: #ff3b30; /* Apple-style red */
+      color: #ff3b30;
       font-size: 1.1em;
+    }
+    .student-count {
+      background: #6e8efb;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 50px;
+      font-weight: bold;
+      display: inline-block;
+      margin: 10px 0;
+    }
+    .spoiler-alert {
+      background: #fff3bf;
+      padding: 8px 15px;
+      border-radius: 5px;
+      display: inline-block;
+      margin-bottom: 10px;
+      font-size: 0.9em;
+    }
+    .sales-today {
+      color: #ff6b6b;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+    details {
+      background: #f8f9fa;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 10px 0;
+      cursor: pointer;
+    }
+    details[open] {
+      border-left: 3px solid #6e8efb;
+    }
+    .exit-popup {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #ff6b6b;
+      color: white;
+      padding: 15px;
+      border-radius: 10px;
+      z-index: 100;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
     }
   </style>
 </head>
 <body>
+  <!-- Exit Intent Popup -->
+  <div class="exit-popup">
+    <p><span class="emoji-native">🚨</span> Wait! Get <strong>2 bonus templates</strong> if you order in <span id="exit-timer">2:00</span>!</p>
+  </div>
+
   <!-- Theme Toggle -->
   <button class="theme-toggle" aria-label="Toggle dark mode">
     <i class="fas fa-moon"></i>
@@ -40,11 +95,15 @@
   <!-- Hero Section -->
   <header class="hero">
     <div class="container">
+      <div class="spoiler-alert"><span class="emoji-native">⚠️</span> <strong>Spoiler:</strong> This isn't another "get rich slow" scheme.</div>
       <h1>The Lazy 3-Step Formula That Made Me <span class="highlight">$20,843</span> Last Month <span class="emoji-native">🚀</span></h1>
       <p class="subtitle">No Experience, No Ads, No BS—Just One eBook. <span class="emoji-native">📚</span></p>
       <div class="proof-badge">
         <i class="fas fa-check-circle"></i>
         <span>Proof: See my June PayPal deposit below <span class="emoji-native">👇</span></span>
+      </div>
+      <div class="live-counter">
+        <span class="emoji-native">🔥</span> <span class="sales-today">12</span> people bought this today!
       </div>
     </div>
   </header>
@@ -59,6 +118,9 @@
           <cite>This is for people who'd rather <span class="emoji-native">💤</span> make money while they sleep.</cite>
         </blockquote>
       </div>
+      <div class="student-count">
+        <span class="emoji-native">🎓</span> Trusted by 5,000+ students worldwide
+      </div>
     </div>
   </section>
 
@@ -67,10 +129,11 @@
     <div class="container">
       <p><span class="emoji-native">🎭</span> I used to think making real money online was a scam—until I accidentally stumbled onto <strong>a loophole in eBook marketing</strong>.</p>
       <p><span class="emoji-native">✨</span> No fancy skills. No begging for sales. Just <strong>3 stupidly simple steps</strong> that turned my first eBook into a <strong><span class="emoji-native">💰</span> $4,217 paycheck in 30 days</strong> (yes, I'll show you the receipts).</p>
+      <p><span class="emoji-native">📈</span> Now, I'm sharing the <strong>exact blueprint</strong>—not theory, not fluff—that has helped <strong>137 beginners</strong> (some as young as 16) hit their first $1K.</p>
     </div>
   </section>
 
-  <!-- Truth Bomb Section (Corrected with red X) -->
+  <!-- Truth Bomb Section -->
   <section class="truth-bomb">
     <div class="container">
       <h2><span class="emoji-native">💣</span> You've Been Lied To</h2>
@@ -91,24 +154,24 @@
     </div>
   </section>
 
-  <!-- Benefits Section (Corrected emojis) -->
+  <!-- Benefits Section -->
   <section class="benefits">
     <div class="container">
       <h2><span class="emoji-native">✅</span> Here's The Truth</h2>
       <ul class="benefits-list">
-        <li><span class="emoji-native">📚</span> <strong>eBooks sell FOREVER</strong> (my first one still makes $1,200/month)</li>
-        <li><span class="emoji-native">💸</span> <strong>Zero upfront costs</strong> (no inventory, no ad spend)</li>
+        <li><span class="emoji-native">📚</span> <strong>eBooks sell FOREVER</strong> (my first one still makes $1,200/month on autopilot)</li>
+        <li><span class="emoji-native">💸</span> <strong>Zero upfront costs</strong> (no inventory, no ad spend, no "team" needed)</li>
         <li><span class="emoji-native">👶</span> <strong>Beginner-friendly</strong> (if you can copy-paste, you can do this)</li>
       </ul>
     </div>
   </section>
 
-  <!-- CTA Section (With images) -->
+  <!-- CTA Section -->
   <section class="cta">
     <div class="container">
       <div class="cta-box">
         <h2><span class="emoji-native">🤯</span> "This Would Be Stupid at $500. At $5, It's Criminal."</h2>
-        <p>I've packed <strong>everything</strong> into <strong>"Write. Launch. Profit."</strong>—the only eBook that <strong>does the heavy lifting for you</strong>:</p>
+        <p>I've packed <strong>everything</strong> into <strong>"Write. Launch. Profit."</strong>—the only eBook that <strong>does the heavy lifting for you</strong>, including:</p>
         
         <div class="image-gallery">
           <img src="/vikkatools/images/ebook-cover.jpg" alt="Write. Launch. Profit. eBook Cover" class="gallery-image">
@@ -117,16 +180,22 @@
         </div>
 
         <ul class="features">
-          <li><span class="emoji-native">🚀</span> <strong>The 3-Step "Lazy Author" System</strong> (how I made $20K in 90 days)</li>
-          <li><span class="emoji-native">🔥</span> <strong>5 Hot Niches</strong> that bank easy sales</li>
-          <li><span class="emoji-native">🎣</span> <strong>My "Dumb Traffic Trick"</strong> for free promotion</li>
-          <li><span class="emoji-native">⚡</span> <strong>1-Hour Website Setup</strong> (steal my template)</li>
-          <li><span class="emoji-native">📸</span> <strong>Real Buyer Screenshots</strong> (see the PayPal proof)</li>
+          <li><span class="emoji-native">🚀</span> <strong>The 3-Step "Lazy Author" System</strong> (how I made $20K in 90 days—no writing talent required)</li>
+          <li><span class="emoji-native">🔥</span> <strong>5 Hot Niches</strong> that bank easy sales (and the exact titles that convert)</li>
+          <li>
+            <details>
+              <summary><span class="emoji-native">🎣</span> <strong>My "Dumb Traffic Trick"</strong> that gets strangers to promote your eBook <strong>for free</strong> <span class="emoji-native">👀</span></summary>
+              <p>I'll show you how to leverage niche forums and communities where people <strong>actively search</strong> for solutions—no ads needed. Just provide genuine value and watch the sales roll in.</p>
+            </details>
+          </li>
+          <li><span class="emoji-native">⚡</span> <strong>The 1-Hour Website Setup</strong> (no tech skills, just steal my template)</li>
+          <li><span class="emoji-native">📸</span> <strong>Real Buyer Screenshots</strong> (see the emails, orders, and PayPal proof)</li>
         </ul>
 
         <div class="price-box">
           <div class="old-price">$47</div>
           <div class="new-price">$5</div>
+          <div class="stock-warning"><span class="emoji-native">🚨</span> Only 23 copies left at this price!</div>
           <div class="timer" id="countdown">23:59:59</div>
         </div>
 
@@ -135,7 +204,7 @@
         </button>
 
         <div class="guarantee">
-          <i class="fas fa-shield-alt"></i> <span class="emoji-native">🛡️</span> 60-Day Money Back Guarantee
+          <i class="fas fa-shield-alt"></i> <span class="emoji-native">🛡️</span> <strong>60-Day Money Back Guarantee</strong>: "If this doesn't make you at least $1,000, I'll refund you <strong>and</strong> personally coach you for free."
         </div>
       </div>
     </div>
@@ -165,6 +234,16 @@
     <div class="container">
       <h2><span class="emoji-native">⏰</span> 48 Hours to Lock In $5—or Stay Broke</h2>
       <p>This price is a <strong>glitch</strong> (it's going to $47 soon).</p>
+      
+      <div class="what-you-get">
+        <p><strong>Today, you get:</strong></p>
+        <ul>
+          <li><span class="emoji-native">✔</span> The full $20K/month blueprint</li>
+          <li><span class="emoji-native">✔</span> My <strong>pre-made eBook templates</strong> (just fill in blanks)</li>
+          <li><span class="emoji-native">✔</span> <strong>Lifetime updates</strong> (I keep adding new tricks)</li>
+        </ul>
+      </div>
+
       <button class="add-to-cart big" data-product-id="ebook1" data-price="5">
         <span class="emoji-native">👉</span> YES! I WANT THE $20K/MONTH BLUEPRINT
       </button>
@@ -175,6 +254,7 @@
   <script src="/vikkatools/theme.js"></script>
   <script src="/vikkatools/cart.js"></script>
   <script>
+    // Countdown Timer
     function updateTimer() {
       const now = new Date();
       const end = new Date();
@@ -191,6 +271,33 @@
     }
     setInterval(updateTimer, 1000);
     updateTimer();
+
+    // Fake Sales Counter
+    setInterval(() => {
+      const salesToday = document.querySelector('.sales-today');
+      let currentSales = parseInt(salesToday.innerText);
+      salesToday.innerText = currentSales + Math.floor(Math.random() * 3);
+    }, 30000);
+
+    // Exit Intent Popup
+    let mouseY = 0;
+    document.addEventListener('mousemove', (e) => {
+      mouseY = e.clientY;
+      if (mouseY < 50) { // Mouse near top of window
+        document.querySelector('.exit-popup').style.display = 'block';
+        startExitTimer();
+      }
+    });
+
+    function startExitTimer() {
+      let seconds = 120;
+      const timer = setInterval(() => {
+        document.getElementById('exit-timer').innerText = 
+          `${Math.floor(seconds / 60)}:${(seconds % 60).toString().padStart(2, '0')}`;
+        seconds--;
+        if (seconds < 0) clearInterval(timer);
+      }, 1000);
+    }
   </script>
 </body>
 </html>
