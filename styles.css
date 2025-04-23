@@ -52,6 +52,15 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+/* ===== SPOILER ALERT FIX ===== */
+.spoiler-alert {
+  color: black; /* Forces black text in light mode */
+}
+
+[data-theme="dark"] .spoiler-alert {
+  color: black; /* Forces black text in dark mode */
+}
+
 /* ===== REVISED TYPOGRAPHY SYSTEM ===== */
 h1, h2, h3, h4 {
   font-family: 'Montserrat', sans-serif;
@@ -101,7 +110,19 @@ p, li {
   border-radius: 0.2em;
 }
 
-/* ===== ALL OTHER SECTIONS REMAIN UNCHANGED ===== */
+/* ===== DARK MODE TRAFFIC TRICK FIX ===== */
+[data-theme="dark"] details[open] {
+  background: #f8f9fa; /* Light gray background */
+  color: #000; /* Black text */
+  padding: 12px;
+  border-radius: 6px;
+}
+
+[data-theme="dark"] details[open] strong {
+  color: #000; /* Ensures bold text stays black */
+}
+
+/* ===== ALL OTHER SECTIONS REMAIN UNCHANGED BELOW THIS LINE ===== */
 /* ===== THEME SYSTEM ===== */
 [data-theme="dark"] body {
   background: var(--dark-bg);
