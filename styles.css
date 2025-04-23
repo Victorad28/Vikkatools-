@@ -16,10 +16,17 @@
 
   /* Brand Colors */
   --primary: #2563eb;
-  --primary-dark: #dc2626;
+  --primary-dark: #1d4ed8;
   --accent: #f59e0b;
   --highlight: #10b981;
   --danger: #ef4444;
+
+  /* New Typography Variables */
+  --text-base-size: 0.9375rem; /* 15px */
+  --text-scale: 1.2;
+  --h1: calc(2rem * var(--text-scale));  /* 36px */
+  --h2: calc(1.8rem * var(--text-scale)); /* 30px */
+  --h3: calc(1.4rem * var(--text-scale)); /* 24px */
 }
 
 /* ===== BASE STYLES ===== */
@@ -31,7 +38,7 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 16px;
+  font-size: 16px; /* Base remains 16px for rem calculations */
 }
 
 body {
@@ -41,8 +48,60 @@ body {
   color: var(--light-text);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   -webkit-font-smoothing: antialiased;
+  font-optical-sizing: auto;
+  text-rendering: optimizeLegibility;
 }
 
+/* ===== REVISED TYPOGRAPHY SYSTEM ===== */
+h1, h2, h3, h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.25rem;
+  color: inherit;
+}
+
+h1 {
+  font-size: var(--h1);
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  font-size: var(--h2);
+  letter-spacing: -0.02em;
+}
+
+h3 {
+  font-size: var(--h3);
+}
+
+p, li {
+  font-size: var(--text-base-size);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  max-width: 65ch;
+}
+
+.highlight {
+  color: var(--highlight);
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+}
+
+.highlight::after {
+  content: '';
+  position: absolute;
+  bottom: 0.1em;
+  left: 0;
+  width: 100%;
+  height: 0.3em;
+  background: rgba(16, 185, 129, 0.2);
+  z-index: -1;
+  border-radius: 0.2em;
+}
+
+/* ===== ALL OTHER SECTIONS REMAIN UNCHANGED ===== */
 /* ===== THEME SYSTEM ===== */
 [data-theme="dark"] body {
   background: var(--dark-bg);
@@ -79,7 +138,7 @@ body {
   font-size: 1.2rem;
 }
 
-/* ===== IMAGE STYLES (NEW ADDITION) ===== */
+/* ===== IMAGE STYLES ===== */
 img {
   max-width: 100%;
   height: auto;
@@ -119,54 +178,6 @@ img {
 
 [data-theme="dark"] .gallery-image {
   box-shadow: var(--dark-shadow);
-}
-
-/* ===== TYPOGRAPHY SYSTEM ===== */
-h1, h2, h3, h4 {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 1.25rem;
-  color: inherit;
-}
-
-h1 {
-  font-size: 2.5rem;
-  letter-spacing: -0.05em;
-}
-
-h2 {
-  font-size: 2rem;
-}
-
-h3 {
-  font-size: 1.5rem;
-}
-
-p, li {
-  font-size: 1rem;
-  line-height: 1.7;
-  margin-bottom: 1.5rem;
-  color: inherit;
-}
-
-.highlight {
-  color: var(--highlight);
-  font-weight: 700;
-  position: relative;
-  display: inline-block;
-}
-
-.highlight::after {
-  content: '';
-  position: absolute;
-  bottom: 0.1em;
-  left: 0;
-  width: 100%;
-  height: 0.3em;
-  background: rgba(16, 185, 129, 0.2);
-  z-index: -1;
-  border-radius: 0.2em;
 }
 
 /* ===== LAYOUT COMPONENTS ===== */
@@ -493,7 +504,7 @@ p, li {
 /* ===== MEDIA QUERIES ===== */
 @media (max-width: 768px) {
   :root {
-    --text-scale: 1.125;
+    --text-scale: 1.15;
   }
   
   .container {
@@ -503,6 +514,10 @@ p, li {
   .hero {
     padding: 4rem 0 3rem;
     clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+  }
+  
+  .hero h1 {
+    font-size: 1.8rem;
   }
   
   .card {
